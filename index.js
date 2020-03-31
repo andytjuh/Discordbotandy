@@ -77,4 +77,4 @@ bot.on('message', async message => {
     Username = messageArray[1];
     message.channel.send(`Je naam is met succes veranderd geef nu de commansd ?done ${message.author}`);
 })
-bot.login(botconfig.token);
+bot.login(process.env.token);
