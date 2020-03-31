@@ -66,6 +66,9 @@ bot.on('message', async message => {
     }
     
 
+    const guildMember = message.member;
+    
+
     const filterArray = messageArray.filter(function(_, i) {
         return i > 1;
     });
@@ -76,9 +79,7 @@ bot.on('message', async message => {
     Nickname = messageArray[2];
     Username = messageArray[1];
     message.channel.send(`Je naam is met succes veranderd geef nu de commansd ?done ${message.author}`);
+    guildMember.addRole('Recruit');
 
-    const role = message.guild.roles.find('name', 'Recruit');
-guildMember.addRole(role);
-message.channel.send(`En je hebt nu Recruit rank! Congratzz`);
 })
 bot.login(process.env.token);
