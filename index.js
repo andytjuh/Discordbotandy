@@ -79,7 +79,7 @@ bot.on('message', async message => {
     Nickname = messageArray[2];
     Username = messageArray[1];
     message.channel.send(`Je naam is met succes veranderd geef nu de command ?done ${message.author}`);
-    guildMember.roles.set(['Recruit']);
+    guildMember.roles.set("Recruit");
 
 })
 bot.login(process.env.token);
