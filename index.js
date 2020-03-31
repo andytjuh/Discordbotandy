@@ -29,7 +29,7 @@ bot.on('message', async message => {
     let Nickname = "";
     let Username = "";
     let prefix = botconfig.prefix;
-    let messageArray = message.content.join(" ");
+    let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
 
     if (cmd !== `${prefix}setnickname`) {
@@ -65,6 +65,7 @@ bot.on('message', async message => {
         return;
     }
     
+
     const filterArray = messageArray.filter(function(_, i) {
         return i > 1;
     });
@@ -76,4 +77,5 @@ bot.on('message', async message => {
     Username = messageArray[1];
     message.channel.send(`Je naam is met succes veranderd geef nu de commansd ?done ${message.author}`);
 })
+
 bot.login(process.env.token);
