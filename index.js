@@ -54,7 +54,7 @@ bot.on('message', async message => {
     const username = messageArray[1];
     const pattern = /(?<=<@!)\d+(?=>)/g;
     const match = username.match(pattern);
-    if (!match) {   
+    if (!match) {
         message.channel.send("Geef een geldige naam");
         return;
     }
@@ -77,5 +77,4 @@ bot.on('message', async message => {
     Username = messageArray[1];
     message.channel.send(`Je naam is met succes veranderd geef nu de commansd ?done ${message.author}`);
 })
-
-bot.login(process.env.token);
+bot.login(botconfig.token);
