@@ -29,7 +29,7 @@ bot.on('message', async message => {
     let Nickname = "";
     let Username = "";
     let prefix = botconfig.prefix;
-    let messageArray = message.content.split(" ");
+    let messageArray = message.content.join(" ");
     let cmd = messageArray[0];
 
     if (cmd !== `${prefix}setnickname`) {
@@ -54,7 +54,7 @@ bot.on('message', async message => {
     const username = messageArray[1];
     const pattern = /(?<=<@!)\d+(?=>)/g;
     const match = username.match(pattern);
-    if (!match) {
+    if (!match) {   
         message.channel.send("Geef een geldige naam");
         return;
     }
@@ -65,9 +65,15 @@ bot.on('message', async message => {
         return;
     }
     
-    naam.setNickname(messageArray[2]);
+    const filterArray = messageArray.filter(function(_, i) {
+        return i > 1;
+    });
+
+    const showAll = filterArray.toString().split(",").join(" ");
+
+    naam.setNickname(showAll);
     Nickname = messageArray[2];
     Username = messageArray[1];
-    message.channel.send(`Je naam is met succes veranderd geef nu de command ?done ${message.author}`);
+    message.channel.send(`Je naam is met succes veranderd geef nu de commansd ?done ${message.author}`);
 })
 bot.login(process.env.token);
