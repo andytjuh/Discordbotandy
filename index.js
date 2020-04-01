@@ -37,9 +37,9 @@ bot.on('message', async message => {
     }
     const roles = message.member.roles.cache;
     
-    const ModRole = roles.find(Role => Role.name === "Quest");
-    const OwnerRole = roles.find(Role => Role.name === "Generals");
-    const CoOwnerRole = roles.find(Role => Role.name === "Captain");
+    const ModRole = roles.find(Role => Role.name === "Quests");
+    const OwnerRole = roles.find(Role => Role.name === "Generalss");
+    const CoOwnerRole = roles.find(Role => Role.name === "Captains");
 
     if(hasRole(ModRole, roles) && hasRole(OwnerRole, roles) && hasRole(CoOwnerRole, roles)) {
         message.channel.send(`You do not have the right permission to do this, ${message.author}`);
