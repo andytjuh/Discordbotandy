@@ -35,11 +35,11 @@ bot.on('message', async message => {
     if (cmd !== `${prefix}setnickname`) {
         return;
     }
-    const roles = message.member.roles.some;
+    const roles = member.roles;
     
-    const ModRole = roles.cache(Role => Role.name === "Quests");
-    const OwnerRole = roles.cache(Role => Role.name === "Generalss");
-    const CoOwnerRole = roles.cache(Role => Role.name === "Captains");
+    const ModRole = roles.find(Role => Role.name === "Quest");
+    const OwnerRole = roles.find(Role => Role.name === "Generals");
+    const CoOwnerRole = roles.find(Role => Role.name === "Captain");
 
     if(hasRole(ModRole, roles) && hasRole(OwnerRole, roles) && hasRole(CoOwnerRole, roles)) {
         message.channel.send(`You do not have the right permission to do this, ${message.author}`);
