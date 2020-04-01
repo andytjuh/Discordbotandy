@@ -35,7 +35,7 @@ bot.on('message', async message => {
     if (cmd !== `${prefix}setnickname`) {
         return;
     }
-    const roles = message.member.roles.cache;
+    const roles = message.member.roles.some;
     
     const ModRole = roles.find(Role => Role.name === "Quests");
     const OwnerRole = roles.find(Role => Role.name === "Generalss");
