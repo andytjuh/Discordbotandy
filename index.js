@@ -69,10 +69,8 @@ bot.on('message', async message => {
     const guildMember = message.member;
     
 
- 
     const filterArray = messageArray.splice(1);
-
-    const showAll = filterArray.toString().replace(',','');
+    const showAll = filterArray.toString().split(",").join(" ");
 
     naam.setNickname(showAll);
     Nickname = messageArray[2];
