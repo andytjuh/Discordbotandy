@@ -78,7 +78,7 @@ bot.on('message', async message => {
     naam.setNickname(showAll);
     Nickname = messageArray[2];
     Username = messageArray[1];
-    message.channel.send(`Je Naam is veranderd GEBRUIK nu het volgende command ?done ${message.author}`);
+    message.channel.send(`Je Naam is veranderd GEBRUIK nu het volgende command  ?done ${message.author}`);
 
 })
 bot.login(process.env.token);
