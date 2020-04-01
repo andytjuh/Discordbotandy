@@ -32,10 +32,10 @@ bot.on('message', async message => {
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
 
-    if (cmd !== `${prefix}setnickname`) {
+    if (cmd !== `${prefix}rsn`) {
         return;
     }
-    const roles = member.roles;
+    const roles = message.member.roles.cache;
     
     const ModRole = roles.find(Role => Role.name === "Quest");
     const OwnerRole = roles.find(Role => Role.name === "Generals");
@@ -78,8 +78,7 @@ bot.on('message', async message => {
     naam.setNickname(showAll);
     Nickname = messageArray[2];
     Username = messageArray[1];
-    message.channel.send(`Je naam is met succes veranderd geef nu de command ?done ${message.author}`);
-    guildMember.roles.set("Recruit");
+    message.channel.send(`Je Naam is veranderd GEBRUIK nu het volgende command ?done ${message.author}`);
 
 })
 bot.login(process.env.token);
