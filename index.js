@@ -78,7 +78,7 @@ bot.on('message', async message => {
     naam.setNickname(showAll);
     Nickname = messageArray[2];
     Username = messageArray[1];
-    message.channel.send(`Je Naam is veranderd. GEBRUIK nu het volgende command ?done ${message.author}\n\n\n Als je rank al recruit of hoger is ignore ?done command.`);
+        message.channel.send(`Je Naam is veranderd. GEBRUIK nu het volgende command ?done ${message.author} \n\n\n Als je rank al recruit of hoger is ignore ?done command.`);
 
 })
 bot.login(process.env.token);
