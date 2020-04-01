@@ -47,7 +47,7 @@ bot.on('message', async message => {
     }
 
     if(messageArray.length < 3){
-        message.channel.send(`You still need to add arguments, ${message.author}`);
+        message.channel.send(`Voorbeeld !rsn ${message.author} Je rs naam - Je echte naam.`);
         return;
     }
 
@@ -55,13 +55,13 @@ bot.on('message', async message => {
     const pattern = /(?<=<@!)\d+(?=>)/g;
     const match = username.match(pattern);
     if (!match) {
-        message.channel.send("Geef een geldige naam");
+        message.channel.send(`!rsn ${message.author}  Hier je nieuwe naam - je eigen naam                 Kom je er niet uit stuur een general even een bericht.`);
         return;
     }
 
     const naam = message.guild.members.cache.find(member => member.id === match[0]);
     if (!naam || !naam.manageable){
-        message.channel.send("I can't nickname " + naam.username);
+        message.channel.send(`Ik kan je naam niet veranderen ${message.author}, Stuur 1 van de generals een DM.`);
         return;
     }
     
@@ -78,7 +78,7 @@ bot.on('message', async message => {
     naam.setNickname(showAll);
     Nickname = messageArray[2];
     Username = messageArray[1];
-    message.channel.send(`Je Naam is veranderd GEBRUIK nu het volgende command  ?done ${message.author}`);
+    message.channel.send(`Je Naam is veranderd. GEBRUIK nu het volgende command ?done ${message.author}`);
 
 })
 bot.login(process.env.token);
