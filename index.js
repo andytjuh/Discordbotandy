@@ -69,11 +69,7 @@ bot.on('message', async message => {
     const guildMember = message.member;
     
 
-   const filterArray = messageArray.filter(function(_, i) {
-        return i > 1;
-    });
-
-
+ 
     const filterArray = messageArray.splice(1);
 
     const showAll = filterArray.toString().replace(',','');
