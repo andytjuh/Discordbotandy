@@ -1,6 +1,9 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const bot = new Discord.Client({disableEveryone: true})
+
+
+
 bot.on('ready', async () => {
     console.log(`${bot.user.username} is online!`);
     bot.user.setActivity("Eagle Nebula", {type: "LISTENING"});
@@ -9,6 +12,8 @@ bot.on('ready', async () => {
 /**
  * Check if the user has a role
  */
+
+
 const hasRole = (role, roles) => {
   if (!role) {
     return false;
@@ -20,6 +25,8 @@ const hasRole = (role, roles) => {
 
   return roles.has(role);
 };
+
+
 
 bot.on('message', async message => {
     if(message.author.bot || message.channel.type === "dm") {
@@ -56,6 +63,7 @@ bot.on('message', async message => {
     const match = username.match(pattern);
     if (!match) {
         message.channel.send(`(Error) Ik kan je naam niet veranderen \n !rsn ${message.author}  Hier je nieuwe naam - je eigen naam \n (Kom je er niet uit stuur een general even een bericht).`);
+
         return;
     }
 
@@ -78,7 +86,7 @@ bot.on('message', async message => {
     naam.setNickname(showAll);
     Nickname = messageArray[2];
     Username = messageArray[1];
-        message.channel.send(`Je Naam is veranderd. GEBRUIK nu het volgende command ?done ${message.author} \n\n Als je rank al recruit of hoger is ignore ?done command.`);
+        message.channel.send(`Je Naam is veranderd. \n GEBRUIK nu het volgende command ?done ${message.author} \n\n Als je rank al recruit of hoger is ignore ?done command.`);
 
 })
 bot.login(process.env.token);
