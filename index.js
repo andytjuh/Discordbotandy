@@ -32,6 +32,10 @@ bot.on('message', async message => {
     if(message.author.bot || message.channel.type === "dm") {
         return;
     }
+    if (cmd !== `${prefix}discord`) {
+        message.channel.send(`https://discord.gg/y6yUP6G`);
+    }
+    
 
     let Nickname = "";
     let Username = "";
