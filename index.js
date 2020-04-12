@@ -83,11 +83,11 @@ bot.on('message', async message => {
     });
 
     const showAll = filterArray.toString().split(",").join(" ");
-    message.member.roles.add(afkRole).catch(console.error);
     naam.setNickname(showAll);
     Nickname = messageArray[2];
     Username = messageArray[1];
-        message.channel.send(`Je Naam is veranderd. \n GEBRUIK nu het volgende command ?done ${message.author} \n\n Als je rank al recruit of hoger is ignore ?done command.`);
+     message.member.roles.add(afkRole).catch(console.error);
+        message.channel.send(`Je Naam is veranderd . \n GEBRUIK nu het volgende command ?done ${message.author} \n\n Als je rank al recruit of hoger is ignore ?done command.`);
 
 })
 bot.login(process.env.token);
