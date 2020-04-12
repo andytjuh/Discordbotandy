@@ -37,7 +37,7 @@ bot.on('message', async message => {
     let Username = "";
     let prefix = botconfig.prefix;
     let messageArray = message.content.split(" ");
-    let afkRole = message.guild.roles.cache.find(role => role.name === "Guest");
+    let afkRole = message.guild.roles.cache.find(role => role.name === "Recruit");
     let cmd = messageArray[0];
 
     if (cmd !== `${prefix}rsn`) {
@@ -91,5 +91,7 @@ bot.on('message', async message => {
         message.member.roles.add(afkRole).catch(console.error);
         message.channel.send(`https://discordapp.com/channels/269245729023721473/694642120379596802/698828610336849980`);
 
+
+        
 })
 bot.login(process.env.token);
