@@ -38,6 +38,7 @@ bot.on('message', async message => {
     let prefix = botconfig.prefix;
     let messageArray = message.content.split(" ");
     let afkRole = message.guild.roles.cache.find(role => role.name === "Recruit");
+    let afkRoles = message.guild.roles.cache.find(role => role.name === "Guest");
     let cmd = messageArray[0];
 
     if (cmd !== `${prefix}rsn`) {
@@ -87,11 +88,13 @@ bot.on('message', async message => {
     naam.setNickname(showAll);
     Nickname = messageArray[2];
     Username = messageArray[1];
-        message.channel.send(`Je Naam is veranderd. \n GEBRUIK nu het volgende command ?done ${message.author} \n\n Als je rank al recruit of hoger is ignore ?done command.`);
-        message.member.roles.add(afkRole).catch(console.error);
+        message.channel.send(`Je Naam is veranderd ${message.author}. Je hebt nu de Rank RECRUIT! \n Heb je geen rank gekregen klik dan op de onderstaande link. En klik op :white_check_mark: .`);
         message.channel.send(`https://discordapp.com/channels/269245729023721473/694642120379596802/698828610336849980`);
+        message.member.roles.add(afkRole).catch(console.error);
+        message.member.roles.remove(afkRoles).catch(console.error);
 
 
-        
+
+
 })
 bot.login(process.env.token);
