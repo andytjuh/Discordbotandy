@@ -88,6 +88,6 @@ bot.on('message', async message => {
     Username = messageArray[1];
      message.member.roles.add(afkRole).catch(console.error);
         message.channel.send(`Je Naam is veranderd . \n GEBRUIK nu het volgende command ?done ${message.author} \n\n Als je rank al recruit of hoger is ignore ?done command.`);
-
+        message.channel.send(`https://discordapp.com/channels/269245729023721473/694642120379596802/698828610336849980`);
 })
 bot.login(process.env.token);
