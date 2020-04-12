@@ -37,6 +37,7 @@ bot.on('message', async message => {
     let Username = "";
     let prefix = botconfig.prefix;
     let messageArray = message.content.split(" ");
+    let afkRole = message.guild.roles.cache.find(role => role.name === "Guest");
     let cmd = messageArray[0];
 
     if (cmd !== `${prefix}rsn`) {
@@ -87,6 +88,7 @@ bot.on('message', async message => {
     Nickname = messageArray[2];
     Username = messageArray[1];
         message.channel.send(`Je Naam is veranderd. \n GEBRUIK nu het volgende command ?done ${message.author} \n\n Als je rank al recruit of hoger is ignore ?done command.`);
+        message.member.roles.add(afkRole).catch(console.error);
         message.channel.send(`https://discordapp.com/channels/269245729023721473/694642120379596802/698828610336849980`);
 
 })
