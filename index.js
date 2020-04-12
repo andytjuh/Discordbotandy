@@ -88,8 +88,7 @@ bot.on('message', async message => {
     naam.setNickname(showAll);
     Nickname = messageArray[2];
     Username = messageArray[1];
-        message.channel.send(`Je Naam is veranderd ${message.author}. Je hebt nu de Rank RECRUIT! \n Heb je geen rank gekregen klik dan op de onderstaande link. En klik op :white_check_mark: .`);
-        message.channel.send(`https://discordapp.com/channels/269245729023721473/694642120379596802/698828610336849980`);
+        message.channel.send(`Je Naam is veranderd ${message.author}. Je hebt nu de Rank RECRUIT!.`);
         message.member.roles.add(afkRole).catch(console.error);
         message.member.roles.remove(afkRoles).catch(console.error);
 
