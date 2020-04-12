@@ -35,6 +35,7 @@ bot.on('message', async message => {
 
     let Nickname = "";
     let Username = "";
+    let afkRole = message.guild.roles.cache.find(role => role.name === "Recruit");
     let prefix = botconfig.prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
@@ -82,7 +83,7 @@ bot.on('message', async message => {
     });
 
     const showAll = filterArray.toString().split(",").join(" ");
-
+    message.member.roles.add(afkRole).catch(console.error);
     naam.setNickname(showAll);
     Nickname = messageArray[2];
     Username = messageArray[1];
