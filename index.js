@@ -67,10 +67,10 @@ bot.on('message', async message => {
         message.channel.send(`Voorbeeld !rsn ${message.author} Je rs naam - Je echte naam.`);
         return;
     }
-
+    const member = message.author;
     const username = messageArray[1];
     const pattern = /(?<=<@!)\d+(?=>)/g;
-    const match = username.match(pattern);
+    const match = message.member);
     if (!match) {
         message.channel.send(`(Error) Ik kan je naam niet veranderen \n !rsn ${message.author}  Hier je nieuwe naam - je eigen naam \n (Kom je er niet uit stuur een general even een bericht).`);
 
