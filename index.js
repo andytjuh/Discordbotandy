@@ -77,8 +77,8 @@ showAll
         return;
     }
 
-    const naam = message.guild.members.cache.find(member => member.id === match[0]);
-    if (!naam || !naam.manageable){
+    const naam = message.author;
+    if (!naam){
         message.channel.send(`Ik kan je naam niet veranderen ${message.author}, Stuur 1 van de generals een DM.`);
         return;
     }
