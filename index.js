@@ -42,6 +42,13 @@ bot.on('message', async message => {
     let General = message.guild.roles.cache.find(role => role.name === "Guest");
     let cmd = messageArray[0];
 
+    const filterArray = messageArray.filter(function(_, i) {
+        return i > 1;
+    });
+
+    const showAll = filterArray.toString().split(",").join(" ");
+
+
     if (cmd !== `${prefix}rsn`) {
         return;
     }
@@ -60,11 +67,11 @@ bot.on('message', async message => {
         message.channel.send(`Voorbeeld !rsn ${message.author} Je rs naam - Je echte naam.`);
         return;
     }
-
+showAll
     const username = messageArray[1];
     const pattern = /(?<=<@!)\d+(?=>)/g;
-    const match = username.match(pattern);
-    if (match) {
+    const match = username.match(showAll);
+    if (!match) {
         message.channel.send(`(Error) Ik kan je naam niet veranderen \n !rsn ${message.author}  Hier je nieuwe naam - je eigen naam \n (Kom je er niet uit stuur een general even een bericht).`);
 
         return;
@@ -79,12 +86,6 @@ bot.on('message', async message => {
 
     const guildMember = message.member;
     
-
-    const filterArray = messageArray.filter(function(_, i) {
-        return i > 1;
-    });
-
-    const showAll = filterArray.toString().split(",").join(" ");
 
     naam.setNickname(showAll);
     Nickname = messageArray[2];
