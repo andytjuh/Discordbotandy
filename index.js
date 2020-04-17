@@ -49,7 +49,7 @@ bot.on('message', async message => {
     const showAll = filterArray.toString().split(",").join(" ");
 
 
-    if (cmd !== `${prefix}rsn`) {
+    if (cmd !== `${prefix}rsn ${message.author}`) {
         return;
     }
     const roles = message.member.roles.cache;
@@ -71,7 +71,11 @@ bot.on('message', async message => {
     const username = messageArray[1];
     const pattern = /(?<=<@!)\d+(?=>)/g;
     const match = username.match(pattern);
-    
+    if (!match) {
+        message.channel.send(`(Error) Ik kan je naam niet veranderen \n !rsn ${message.author}  Hier je nieuwe naam - je eigen naam \n (Kom je er niet uit stuur een general even een bericht).`);
+
+        return;
+    }
 
     const naam = message.guild.members.cache.find(member => member.id ===   [0]);
     if (!naam || !naam.manageable){
