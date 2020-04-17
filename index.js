@@ -49,7 +49,7 @@ bot.on('message', async message => {
     const showAll = filterArray.toString().split(",").join(" ");
 
 
-    if (cmd !== `${prefix}rsn ${message.author}`) {
+    if (cmd !== `${prefix}rsn`) {
         return;
     }
     const roles = message.member.roles.cache;
