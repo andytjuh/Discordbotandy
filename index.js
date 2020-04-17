@@ -71,13 +71,9 @@ bot.on('message', async message => {
     const username = messageArray[1];
     const pattern = /(?<=<@!)\d+(?=>)/g;
     const match = username.match(pattern);
-    if (!match) {
-        message.channel.send(`(Error) Ik kan je naam niet veranderen \n !rsn ${message.author}  Hier je nieuwe naam - je eigen naam \n (Kom je er niet uit stuur een general even een bericht).`);
+    
 
-        return;
-    }
-
-    const naam = message.guild.members.cache.find(member => member.id === match[0]);
+    const naam = message.guild.members.cache.find(member => member.id ===   [0]);
     if (!naam || !naam.manageable){
         message.channel.send(`Ik kan je naam niet veranderen ${message.author}, Stuur 1 van de generals een DM.`);
         return;
